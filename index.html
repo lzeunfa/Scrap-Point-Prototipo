@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Scrap Point – Protótipo</title>
+
+<!--CSS-->
+<link rel="stylesheet" href="style.css">
+
+<!--google fonts-->
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+
+<!--javascript-->
+<script src="prototipo.js" defer></script>
+
+<link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+
+</head>
+
+<body>
+<div class="wrap">
+
+    <aside>
+
+        <h1>Scrap Point</h1>
+
+        <p>Protótipo clicável. Use o menu ou os botões do celular para percorrer o fluxo de uma coleta, do mapa até a avaliação.</p>
+
+        <nav id="menu">
+
+            <button data-go="login">1. Login</button>
+            <button data-go="mapa">2. Mapa do coletor</button>
+            <button data-go="detalhe">3. Detalhe do recurso</button>
+            <button data-go="espera">4. Aguardando confirmação</button>
+            <button data-go="forn">5. Solicitações do fornecedor</button>
+            <button data-go="rota">6. Rota e tempo estimado</button>
+            <button data-go="aval">7. Avaliação</button>
+            <button data-go="cad">8. Cadastrar recurso</button>
+            <button data-go="hist">9. Histórico</button>
+            <button data-go="perfil">10. Perfil</button>
+            <button data-go="cadastro">11. Criar conta</button>
+            <button data-go="senha">12. Recuperar senha</button>
+
+        </nav>
+
+    </aside>
+
+    <div class="phone app">
+
+        <!--1. LOGIN-->
+        <section class="scr" id="s-login">
+
+            <div class="bar">
+                <span>9:41</span><span>5G</span>
+            </div>
+
+            <div class="body" style="display:flex;flex-direction:column;justify-content:center">
+
+                <svg width="72" height="72" viewBox="0 0 72 72" style="margin:0 auto">
+                    <circle cx="36" cy="36" r="34" fill="#2f6b3f"/>
+                    <path d="M36 14c-9 8-14 15-14 23a14 14 0 0 0 28 0c0-8-5-15-14-23z" fill="#fff"/>
+                    <path d="M36 26v22M36 38l-7-6M36 43l7-6" stroke="#6b4a2e" stroke-width="3" stroke-linecap="round" fill="none"/>
+                </svg>
+
+                <h2 style="text-align:center;color:var(--g);margin:10px 0 2px">Scrap Point</h2>
+                <p class="mut" style="text-align:center;margin:0 0 10px">Sucata e óleo usado viram renda, não lixo.</p>
+
+                <label>E-mail</label>
+                <input class="in" value="maria@email.com">
+
+                <label>Senha</label>
+                <input class="in" type="password" value="12345678">
+
+                <button class="btn" data-go="mapa">Entrar como coletor</button>
+                <button class="btn alt" data-go="forn">Entrar como fornecedor</button>
+
+                <p class="mut" style="text-align:center">
+                    <span data-go="senha" style="cursor:pointer;color:var(--g);font-weight:700">Esqueceu a senha?</span> ·
+                    <span data-go="cadastro" style="cursor:pointer;color:var(--g);font-weight:700">Criar conta</span>
+                </p>
+
+            </div>
+
+        </section>
+
+        <!--2. MAPA-->
+        <section class="scr" id="s-mapa">
+
+            <div class="bar" style="background:var(--g);color:#fff">
+                <span>9:41</span><span>5G</span>
+            </div>
+
+            <div class="top">
+                <div>Pontos de coleta<small>5 recursos num raio de 5 km</small></div>
+            </div>
+
+            <div class="chips">
+                <button class="chip on" data-chip>Todos</button>
+                <button class="chip" data-chip>Óleo</button>
+                <button class="chip" data-chip>Sucata</button>
+            </div>
+
+            <div style="flex:1;padding:10px 16px 0">
+
+                <svg viewBox="0 0 300 380" style="width:100%;height:100%;border-radius:14px;background:#e3efe0" role="img" aria-label="Mapa com pontos de coleta">
+
+                    <path d="M0 90Q120 70 300 130M60 0Q90 180 40 380M0 270Q150 240 300 300M200 0Q180 160 260 380" stroke="#fff" stroke-width="12" fill="none"/>
+                    <ellipse cx="235" cy="70" rx="45" ry="30" fill="#c5dcc0"/>
+                    <circle cx="150" cy="200" r="9" fill="#6b4a2e" stroke="#fff" stroke-width="3"/>
+
+                    <g style="cursor:pointer" onclick="go('detalhe')">
+                        <circle cx="105" cy="130" r="15" fill="#e8b923" stroke="#fff" stroke-width="3"/>
+                        <text x="105" y="135" text-anchor="middle" font-size="13" font-weight="800" fill="#2b2118">O</text>
+                    </g>
+
+                    <g>
+                        <circle cx="225" cy="170" r="15" fill="#8a8f94" stroke="#fff" stroke-width="3"/>
+                        <text x="225" y="175" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">S</text>
+                    </g>
+
+                    <g>
+                        <circle cx="80" cy="300" r="15" fill="#8a8f94" stroke="#fff" stroke-width="3"/>
+                        <text x="80" y="305" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">S</text>
+                    </g>
+
+                    <g>
+                        <circle cx="215" cy="280" r="15" fill="#e8b923" stroke="#fff" stroke-width="3"/>
+                        <text x="215" y="285" text-anchor="middle" font-size="13" font-weight="800" fill="#2b2118">O</text>
+                    </g>
+
+                </svg>
+
+            </div>
+
+            <div class="tabs">
+                <span class="on" data-go="mapa">Mapa</span><span data-go="espera">Minhas coletas</span><span data-go="hist">Histórico</span><span data-go="perfil">Perfil</span>
+            </div>
+
+        </section>
+
+        <!--3. DETALHE DO RECURSO-->
+        <section class="scr" id="s-detalhe">
+
+            <div class="bar" style="background:var(--g);color:#fff">
+                <span>9:41</span><span>5G</span>
+            </div>
+
+            <div class="top">
+                <span data-go="mapa" style="cursor:pointer">‹</span><div>Detalhe do recurso</div>
+            </div>
+
+            <div class="body">
+
+                <div class="row">
+                    <b style="font-size:18px">Óleo de cozinha usado</b><span class="tag oil">Óleo</span>
+                </div>
+
+                <p class="mut">Disponível · a 1,2 km de você</p>
+
+                <div class="card">
+
+                    <div class="row">
+                        <span class="mut">Quantidade</span><b>18 kg</b>
+                    </div>
+
+                    <div class="row" style="margin-top:6px">
+                        <span class="mut">Horário para coleta</span><b>14h às 18h</b>
+                    </div>
+
+                    <div class="row" style="margin-top:6px">
+                        <span class="mut">Endereço</span><b>CLN 405, Asa Norte</b>
+                    </div>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="row">
+
+                        <div>
+                            <b>Padaria Trigo Bom</b>
+                            <div class="mut">Fornecedor</div>
+                        </div>
+
+                        <b style="color:var(--b)">★ 4,8</b>
+
+                    </div>
+
+                    <div class="mut" style="margin-top:6px">34 coletas concluídas</div>
+
+                </div>
+
+                <button class="btn" data-go="espera">Solicitar coleta</button>
+                <button class="btn alt" data-go="mapa">Voltar ao mapa</button>
+
+            </div>
+
+        </section>
+
+        <!--4. AGUARDANDO CONFIRMAÇÃO-->
+        <section class="scr" id="s-espera">
+
+            <div class="bar" style="background:var(--g);color:#fff">
+                <span>9:41</span><span>5G</span>
+            </div>
+
+            <div class="top">
+                <div>Minha coleta</div>
+            </div>
+
+            <div class="body">
+
+                <div class="card">
+                    <b>Óleo de cozinha usado · 18 kg</b>
+                    <div class="mut">Padaria Trigo Bom</div>
+                </div>
+
+                <div class="tag" style="background:var(--bl);color:var(--b);display:inline-block">Aguardando confirmação</div>
+
+                <ul class="steps">
+                    <li class="d">Solicitação enviada</li>
+                    <li>Fornecedor autoriza</li>
+                    <li>Coleta no local</li>
+                    <li>Fornecedor confirma</li>
+                </ul>
+
+                <p class="mut">O recurso fica reservado para você enquanto o fornecedor responde.</p>
+
+                <button class="btn alt" data-go="forn">Ver como fornecedor (demo)</button>
+                <button class="btn no" data-go="mapa">Cancelar busca</button>
+
+            </div>
+
+        </section>
+
+        <!--5. SOLICITAÇÕES DO FORNECEDOR-->
+        <section class="scr" id="s-forn">
+
+            <div class="bar" style="background:var(--b);color:#fff">
+                <span>9:41</span><span>5G</span>
+            </div>
+
+            <div class="top" style="background:var(--b)">
+                <div>Padaria Trigo Bom<small>Área do fornecedor</small></div>
+            </div>
+
+            <div class="body">
+
+                <b>Solicitações recebidas</b>
+
+                <div class="card" style="margin-top:10px">
+
+                    <div class="row">
+
+                        <div>
+                            <b>João Pereira</b>
+                            <div class="mut">Coletor · Fiorino</div>
+                        </div>
+
+                        <b style="color:var(--b)">★ 4,6</b>
+
+                    </div>
+
+                    <div class="mut" style="margin:8px 0">Quer coletar: óleo de cozinha usado, 18 kg</div>
+
+                    <div class="row">
+                        <button class="btn no" style="margin:0" data-go="mapa">Recusar</button>
+                        <button class="btn" style="margin:0" data-go="rota">Autorizar</button>
+                    </div>
+
+                </div>
+
+                <b>Meus recursos</b>
+
+                <div class="card" style="margin-top:10px">
+                    <div class="row">
+                        <span>Óleo · 18 kg</span><span class="tag" style="background:var(--bl)">Aguardando</span>
+                    </div>
+                </div>
+
+                <button class="btn alt" data-go="cad">Cadastrar novo recurso</button>
+
+            </div>
+
+        </section>
+
+        <!--6. ROTA E TEMPO ESTIMADO-->
+        <section class="scr" id="s-rota">
+
+            <div class="bar" style="background:var(--g);color:#fff">
+                <span>9:41</span><span>5G</span>
+            </div>
+
+            <div class="top">
+                <div>Coleta autorizada</div>
+            </div>
+
+            <div style="padding:10px 16px 0">
+
+                <svg viewBox="0 0 300 220" style="width:100%;border-radius:14px;background:#e3efe0" role="img" aria-label="Rota do coletor até o fornecedor">
+
+                    <path d="M0 60Q120 40 300 100M60 0Q90 120 40 220M0 170Q150 150 300 190" stroke="#fff" stroke-width="12" fill="none"/>
+                    <path d="M50 190Q70 120 150 110T250 40" stroke="#2f6b3f" stroke-width="5" fill="none" stroke-dasharray="1 9" stroke-linecap="round"/>
+                    <circle cx="50" cy="190" r="9" fill="#6b4a2e" stroke="#fff" stroke-width="3"/>
+                    <circle cx="250" cy="40" r="15" fill="#e8b923" stroke="#fff" stroke-width="3"/>
+
+                </svg>
+
+            </div>
+
+            <div class="body">
+
+                <div class="mut" style="text-align:center">Tempo estimado de chegada</div>
+                <div class="big">8 min</div>
+                <div class="mut" style="text-align:center">1,2 km · rota com menor consumo</div>
+
+                <ul class="steps">
+                    <li class="d">Solicitação enviada</li>
+                    <li class="d">Fornecedor autorizou</li>
+                    <li class="d">A caminho do local</li>
+                    <li>Fornecedor confirma</li>
+                </ul>
+
+                <button class="btn" data-go="aval">Coleta realizada (demo)</button>
+
+            </div>
+
+        </section>
+
+        <!--7. AVALIAÇÃO-->
+        <section class="scr" id="s-aval">
+
+            <div class="bar" style="background:var(--g);color:#fff">
+                <span>9:41</span><span>5G</span>
+            </div>
+
+            <div class="top">
+                <div>Coleta concluída</div>
+            </div>
+
+            <div class="body" style="text-align:center">
+
+                <svg width="64" height="64" viewBox="0 0 64 64" style="margin:12px auto 0">
+                    <circle cx="32" cy="32" r="30" fill="#e3efe0"/>
+                    <path d="M19 33l9 9 17-19" stroke="#2f6b3f" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+                <h3 style="margin:8px 0 2px">Como foi a coleta?</h3>
+                <p class="mut" style="margin:0">Avalie a Padaria Trigo Bom de 0 a 5.</p>
+
+                <div class="stars" id="stars" role="group" aria-label="Nota">
+                    <i>★</i><i>★</i><i>★</i><i>★</i><i>★</i>
+                </div>
+
+                <textarea class="in" rows="3" placeholder="Comentário (opcional)"></textarea>
+
+                <button class="btn" data-go="mapa">Enviar avaliação</button>
+                <button class="btn alt" data-go="mapa">Favoritar perfil</button>
+
+            </div>
+
+        </section>
+
+        <!--8. CADASTRAR RECURSO-->
+        <section class="scr" id="s-cad">
+
+            <div class="bar" style="background:var(--b);color:#fff">
+                <span>9:41</span><span>5G</span>
+            </div>
+
+            <div class="top" style="background:var(--b)">
+                <span data-go="forn" style="cursor:pointer">‹</span><div>Cadastrar recurso</div>
+            </div>
+
+            <div class="body">
+
+                <label>Tipo de recurso</label>
+                <select class="in">
+                    <option>Óleo de cozinha usado</option>
+                    <option>Sucata</option>
+                </select>
+
+                <label>Quantidade (kg)</label>
+                <input class="in" value="18">
+
+                <label>Horário disponível para coleta</label>
+                <input class="in" value="14h às 18h">
+
+                <label>Endereço para retirada</label>
+                <input class="in" value="CLN 405, Asa Norte, Brasília">
+
+                <button class="btn" data-go="forn">Publicar recurso</button>
+
+            </div>
+
+        </section>
+
+        <!--9. HISTÓRICO-->
+        <section class="scr" id="s-hist">
+
+            <div class="bar" style="background:var(--g);color:#fff">
+                <span>9:41</span><span>5G</span>
+            </div>
+
+            <div class="top">
+                <div>Histórico<small>Coletas concluídas e canceladas</small></div>
+            </div>
+
+            <div class="body">
+
+                <div class="card">
+
+                    <div class="row">
+                        <b>Óleo de cozinha usado</b><span class="tag oil">Óleo</span>
+                    </div>
+
+                    <div class="mut">Padaria Trigo Bom · 18 kg · 12/10/2026</div>
+
+                    <div class="row" style="margin-top:8px">
+                        <span class="tag" style="background:var(--gl);color:var(--gd)">Concluído</span><b style="color:var(--b)">★ 5</b>
+                    </div>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="row">
+                        <b>Sucata de alumínio</b><span class="tag scrap">Sucata</span>
+                    </div>
+
+                    <div class="mut">Oficina Silva · 40 kg · 03/10/2026</div>
+
+                    <div class="row" style="margin-top:8px">
+                        <span class="tag" style="background:var(--gl);color:var(--gd)">Concluído</span><b style="color:var(--b)">★ 4</b>
+                    </div>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="row">
+                        <b>Óleo de cozinha usado</b><span class="tag oil">Óleo</span>
+                    </div>
+
+                    <div class="mut">Restaurante Sabor · 25 kg · 28/09/2026</div>
+
+                    <div class="row" style="margin-top:8px">
+                        <span class="tag" style="background:var(--bl);color:var(--b)">Cancelado</span>
+                    </div>
+
+                </div>
+
+                <p class="hint">Só aparecem coletas já finalizadas ou canceladas.</p>
+
+            </div>
+
+            <div class="tabs">
+                <span data-go="mapa">Mapa</span><span data-go="espera">Minhas coletas</span><span class="on" data-go="hist">Histórico</span><span data-go="perfil">Perfil</span>
+            </div>
+
+        </section>
+
+        <!--10. PERFIL-->
+        <section class="scr" id="s-perfil">
+
+            <div class="bar" style="background:var(--g);color:#fff">
+                <span>9:41</span><span>5G</span>
+            </div>
+
+            <div class="top">
+                <div>Meu perfil</div>
+            </div>
+
+            <div class="body" style="text-align:center">
+
+                <div class="ava">JP</div>
+
+                <b style="font-size:18px">João Pereira</b>
+                <div class="mut">Coletor · Fiorino · ABC-1D23</div>
+
+                <div class="row" style="justify-content:center;gap:24px;margin:12px 0">
+
+                    <div>
+                        <b style="color:var(--b);font-size:20px">★ 4,6</b>
+                        <div class="mut">Avaliação</div>
+                    </div>
+
+                    <div>
+                        <b style="font-size:20px">52</b>
+                        <div class="mut">Coletas</div>
+                    </div>
+
+                    <div>
+                        <b style="font-size:20px">9</b>
+                        <div class="mut">Favoritos</div>
+                    </div>
+
+                </div>
+
+                <div class="card" style="text-align:left">
+
+                    <div class="row">
+                        <span class="mut">Telefone</span><b>(61) 99999-0000</b>
+                    </div>
+
+                    <div class="row" style="margin-top:6px">
+                        <span class="mut">Endereço</span><b>Asa Sul, Brasília</b>
+                    </div>
+
+                </div>
+
+                <p class="hint">Outros usuários não veem seu CPF nem seu e-mail.</p>
+
+                <button class="btn">Editar perfil</button>
+                <button class="btn alt">Perfis favoritos</button>
+                <button class="btn no" data-go="login">Sair</button>
+
+                <p class="mut" style="color:#a33">Excluir minha conta</p>
+
+            </div>
+
+            <div class="tabs">
+                <span data-go="mapa">Mapa</span><span data-go="espera">Minhas coletas</span><span data-go="hist">Histórico</span><span class="on" data-go="perfil">Perfil</span>
+            </div>
+
+        </section>
+
+        <!--11. CRIAR CONTA-->
+        <section class="scr" id="s-cadastro">
+
+            <div class="bar" style="background:var(--g);color:#fff">
+                <span>9:41</span><span>5G</span>
+            </div>
+
+            <div class="top">
+                <span data-go="login" style="cursor:pointer">‹</span><div>Criar conta</div>
+            </div>
+
+            <div class="body">
+
+                <div class="row" style="justify-content:flex-start">
+                    <button class="chip on" data-role="c">Sou coletor</button>
+                    <button class="chip" data-role="f">Sou fornecedor</button>
+                </div>
+
+                <label>Nome completo</label>
+                <input class="in" placeholder="Seu nome">
+
+                <label>CPF</label>
+                <input class="in" placeholder="000.000.000-00">
+
+                <label>Data de nascimento</label>
+                <input class="in" placeholder="dd/mm/aaaa">
+                <p class="hint" id="idade">Coletores precisam ter 18 anos ou mais.</p>
+
+                <label>Endereço (com CEP)</label>
+                <input class="in" placeholder="Rua, número, CEP">
+
+                <label>Telefone</label>
+                <input class="in" placeholder="(61) 90000-0000">
+
+                <label>E-mail</label>
+                <input class="in" placeholder="voce@email.com">
+
+                <div id="veic">
+
+                    <label>Tipo de veículo</label>
+                    <select class="in">
+                        <option>Carro</option>
+                        <option>Utilitário</option>
+                        <option>Moto</option>
+                        <option>Carroça</option>
+                    </select>
+
+                    <label>Placa</label>
+                    <input class="in" placeholder="ABC-1D23">
+
+                </div>
+
+                <label>Senha</label>
+                <input class="in" type="password" placeholder="Mínimo de 8 caracteres">
+                <p class="hint">Use letra maiúscula, número e caractere especial.</p>
+
+                <button class="btn" data-go="login">Criar conta</button>
+
+            </div>
+
+        </section>
+
+        <!--12. RECUPERAR SENHA (etapa 1)-->
+        <section class="scr" id="s-senha">
+
+            <div class="bar" style="background:var(--g);color:#fff">
+                <span>9:41</span><span>5G</span>
+            </div>
+
+            <div class="top">
+                <span data-go="login" style="cursor:pointer">‹</span><div>Recuperar senha</div>
+            </div>
+
+            <div class="body">
+
+                <svg width="56" height="56" viewBox="0 0 56 56" style="display:block;margin:10px auto">
+                    <circle cx="28" cy="28" r="26" fill="#efe5da"/>
+                    <rect x="17" y="26" width="22" height="15" rx="3" fill="#6b4a2e"/>
+                    <path d="M21 26v-4a7 7 0 0 1 14 0v4" stroke="#6b4a2e" stroke-width="3" fill="none"/>
+                </svg>
+
+                <p class="mut" style="text-align:center">Informe o e-mail da sua conta. Enviaremos um código para criar uma nova senha.</p>
+
+                <label>E-mail</label>
+                <input class="in" value="maria@email.com">
+
+                <button class="btn" data-go="senha2">Enviar código</button>
+                <button class="btn alt" data-go="login">Voltar ao login</button>
+
+            </div>
+
+        </section>
+
+        <!--12. RECUPERAR SENHA (etapa 2)-->
+        <section class="scr" id="s-senha2">
+
+            <div class="bar" style="background:var(--g);color:#fff">
+                <span>9:41</span><span>5G</span>
+            </div>
+
+            <div class="top">
+                <span data-go="senha" style="cursor:pointer">‹</span><div>Nova senha</div>
+            </div>
+
+            <div class="body">
+
+                <div class="card" style="background:var(--gl);border-color:var(--gl)">
+                    Código enviado para <b>maria@email.com</b>. Ele vale por 10 minutos.
+                </div>
+
+                <label>Código de 6 dígitos</label>
+                <input class="in" value="482 917">
+
+                <label>Nova senha</label>
+                <input class="in" type="password" value="NovaSenha#1">
+
+                <label>Confirmar nova senha</label>
+                <input class="in" type="password" value="NovaSenha#1">
+
+                <button class="btn" data-go="login">Salvar nova senha</button>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>
+
+</body>
+</html>
